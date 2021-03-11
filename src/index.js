@@ -13,7 +13,7 @@ module.exports = function check(str, bracketsConfig) {
 
     for (let symbol of str) {
         closedBracket = bracketsMap.get(symbol);
-        if (closedBrackets.length > 0 && closedBracket === symbol) {
+        if (closedBrackets.length) {
             if (symbol === closedBrackets[closedBrackets.length - 1]) {
                 popFromArrays();
                 continue;
