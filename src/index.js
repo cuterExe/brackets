@@ -13,11 +13,12 @@ module.exports = function check(str, bracketsConfig) {
 
     for (let symbol of str) {
         closedBracket = bracketsMap.get(symbol);
-        if (closedBrackets.length) {
-            if (symbol === closedBrackets[closedBrackets.length - 1]) {
-                popFromArrays();
-                continue;
-            }
+        if (
+            closedBrackets.length &&
+            symbol === closedBrackets[closedBrackets.length - 1]
+        ) {
+            popFromArrays();
+            continue;
         }
         const openBracket = bracketsMap.has(symbol);
         if (openBracket) {
